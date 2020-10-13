@@ -2,6 +2,7 @@ import requests
 
 command = input("What amount do you want to convert into the other respective currency?\n")
 command = command.replace(',','.')
+
 if "€" in command:
     eurrate = requests.get('https://api.exchangeratesapi.io/latest').json()
 
