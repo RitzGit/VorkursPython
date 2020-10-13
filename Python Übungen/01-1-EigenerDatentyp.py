@@ -35,10 +35,14 @@ class Geburtstag:
     #print(Geburtstag)
     #Fortgeschrittenere print Funktion, die im Prinzip das gleiche macht wie die vorherige
     def __str__(self):
-        print(f"{self.tag}.{self.monat}.{self.jahr}")
+        return f"{self.tag}.{self.monat}.{self.jahr}"
 
     #Geburtstag.nicePrint()
     #Die gleiche Funktion wie print(), aber in diesem Fall wird die Zahl von dem monat mit dem entsprechenden Wort ersetzt.
 
     def nicePrint(self):
         print(str(self.tag) + ". " + str(monate[self.monat]) + " " + str(self.jahr))
+
+geb = Geburtstag(1,11,1999)
+
+print(geb)
