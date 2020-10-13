@@ -1,4 +1,4 @@
-f = int(input("Welche temperatur möchten sie von Fahrenheit nach Celsius umformen?\n"))
+f = int(input("Welche Temperatur möchten sie von Fahrenheit nach Celsius umformen?\n"))
 
 c = int(5 * (f - 32)/9)
 
