@@ -4,11 +4,6 @@ import requests
 import csv
 from datetime import datetime
 
-#r = requests.get("https://stadtplan.bonn.de/csv?OD=4379")
-#f = open("covid19-data.csv", "w")
-#f.write(r.text)
-#f.close()
-
 #Liest die Daten aus der Datei aus.
 def getData():
     with open("covid19-data.csv") as csvdatei:
@@ -39,6 +34,21 @@ def akut(data, mind):
 def mostPositive(data):
     #In diesem Fall sortieren wir nach der Menge an den positiv getesteten Personen und geben dann das letzte ELement zurück.
     return sorted(data, key= lambda a: int(a['positiv_getest']))[-1]
+
+def updateData():
+    #Der GET Request wird bei der Webseite gemacht
+    r = requests.get("https://stadtplan.bonn.de/csv?OD=4379")
+    #Der status code gibt zurück ob es Probleme gab oder nicht.
+    #Bei 200 gab es keine Probleme, also überschreiben wir die alten Daten mit neuen.
+    if r.status_code == 200:
+        f = open("covid19-data.csv", "w")
+        f.write(r.text)
+        f.close()
+    #Bei 429 gab es eine Problem, also überschreiben wir keine Daten.
+    elif r.status_code == 429:
+        print(r.text)
+    #Am Ende geben wir die neuen Daten wieder zurück, welche jetzt in der Datei liegen die mit getData() ausgelesen wird.
+    return getData()
 
 data = getData()
 print(sortData(data)[0])
