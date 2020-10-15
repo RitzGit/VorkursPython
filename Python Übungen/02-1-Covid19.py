@@ -30,7 +30,7 @@ def akut(data, mind):
     #Dieser gibt aus ob die akut erkrankten über dem Mindestwert sind und gibt dann alle als Liste aus, auf die das zutrifft.
     return list(filter(lambda a: int(a['akut_erkrankt']) > mind, data))
 
-#Der Tag an dem es die meisten neuen positiven Fälle gab.
+#Der Tag an dem der Anstieg in Fällen am größten war.
 def mostPositive(data):
     #In diesem Fall sortieren wir nach der Menge an den positiv getesteten Personen und geben dann das letzte ELement zurück.
     return sorted(data, key= lambda a: int(a['positiv_getest']))[-1]
@@ -41,9 +41,8 @@ def updateData():
     #Der status code gibt zurück ob es Probleme gab oder nicht.
     #Bei 200 gab es keine Probleme, also überschreiben wir die alten Daten mit neuen.
     if r.status_code == 200:
-        f = open("covid19-data.csv", "w")
-        f.write(r.text)
-        f.close()
+        with open("covid19-data.csv") as f:
+            f.write(r.text)
     #Bei 429 gab es eine Problem, also überschreiben wir keine Daten.
     elif r.status_code == 429:
         print(r.text)
