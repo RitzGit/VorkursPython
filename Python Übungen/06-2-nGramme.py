@@ -1,7 +1,7 @@
 # Aufgabe:  n-Gramme erstellen als Liste von Tuples
-from typing import List, Tuple
+from typing import List, Tuple, Generator
 # Generator
-def n_gram(n:int, text: str) -> List[Tuple[str,...]]:
+def n_gram(n:int, text: str) -> Generator:
     text_list = text.replace("!", "").replace(",","").replace(".","").split(" ")
 
     x = 0
