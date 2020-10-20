@@ -1,6 +1,6 @@
 # Aufgabe:  Erweitern durch Typehinting
 from typing import List, Set, Dict, Tuple, Optional
-def flaecheninhalt ( breite: int , laenge: int ) -> int:
+def flaecheninhalt ( breite: float , laenge: float ) -> float:
     return breite * laenge
 
 def zeichenzaehlen ( text: str ) -> Dict[str, str]:
