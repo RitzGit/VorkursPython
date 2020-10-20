@@ -41,7 +41,7 @@ while True:
     for n in range( len( nutzerZahl ) ):
 
         #Wenn das Element der nutzerZahl an dem Index n dem Element der geheimZahl an n gleich ist, dann sind zwei gleiche Zahlen an der gleichen Position.
-        if nutzerZahl[n] == geheimZahl [n]:
+        if nutzerZahl[n] == geheimZahl[n]:
             nIndex = nIndex + 1
 
         #Falls die Zahl an der n-ten Stelle in nutzerZahl nicht gleich der Zahl in geheimZahl an der n-ten Stelle ist,
