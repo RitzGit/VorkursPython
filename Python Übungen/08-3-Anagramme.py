@@ -25,7 +25,7 @@ def generate_anagram(startword: str) -> List[str]:
     
     with open('deutsch.txt', 'r') as file:
         all_words = file.readlines()
-        all_words = filter(lambda w : len(w) == len(startword), all_words)
+        #all_words = list(filter(lambda w : len(w) == len(startword), all_words))
         for word in all_words:
             word = word.replace('\n', '')
 
@@ -37,8 +37,7 @@ def generate_anagram(startword: str) -> List[str]:
     return anagrams
         
 
-for _ in range(100):
-    generate_anagram('ampel')
+print(generate_anagram('ampel'))
 
 print(f'Durchschnitt: {sum(times) / 100}')
 print(f'Min: {min(times)}')
