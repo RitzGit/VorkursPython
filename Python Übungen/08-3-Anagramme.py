@@ -17,7 +17,6 @@ def count_letters(word: str) -> Dict[str, int]:
     return {char: word.count(char) for char in set(word) if char.isalpha()}
 
 def generate_anagram(startword: str) -> List[str]:
-    start = time.time()
     startword = startword.lower()
     startword_letter_count = coll_count_letters(startword)
     
@@ -33,11 +32,13 @@ def generate_anagram(startword: str) -> List[str]:
                 
                 anagrams.append(word.replace('\n', ''))
     
-    times.append(time.time() - start)
+    
     return anagrams
         
-
-print(generate_anagram('ampel'))
+for _ in range(50):
+    start = time.time()
+    print(generate_anagram('ampel'))
+    times.append(time.time() - start)
 
 print(f'Durchschnitt: {sum(times) / 100}')
 print(f'Min: {min(times)}')
