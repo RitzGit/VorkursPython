@@ -5,6 +5,12 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+reale_teilnehmeranzahl = [( '2020-10-12', 210) , ('2020-10-13', 180) ,
+                    ('2020-10-14', 180) , ('2020-10-15', 165) ,
+                    ('2020-10-16', 160) , ('2020-10-19', 165) ,
+                    ('2020-10-20', 155) , ('2020-10-21', 150 ) ,
+                    ('2020-10-22', None ) , ('2020-10-23', None )]
+
 
 teilnehmeranzahl = [( '2020-10-12', 210) , ('2020-10-13', 180) ,
                     ('2020-10-14', 180) , ('2020-10-15', 165) ,
@@ -33,10 +39,8 @@ def give_statistics(stats: np.array) -> str:
     return response
 
 def get_panda(data: List[Tuple[str, int]]) -> pd.DataFrame:
-    datum = [e[0] for e in data]
-    anzahl = [e[1] for e in data]
 
-    pd_teilnehmeranzahl = pd.DataFrame({'anzahl': anzahl, 'datum': datum}, index = datum)
+    pd_teilnehmeranzahl = pd.DataFrame(data, columns= ['datum', 'anzahl'])
     return pd_teilnehmeranzahl
 
 def plot_panda(data: pd.DataFrame):
@@ -61,4 +65,4 @@ percent_loss = np.array(percent_loss, dtype='float32')
 
 #print(plot_panda(get_panda(teilnehmeranzahl)))
 
-plot_extra(extrapolate(get_panda(teilnehmeranzahl), percent_loss), get_panda(teilnehmeranzahl))
+plot_extra(extrapolate(get_panda(teilnehmeranzahl), percent_loss), get_panda(reale_teilnehmeranzahl))

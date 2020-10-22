@@ -12,5 +12,5 @@ def n_gram(n:int, text: str) -> Generator:
         x += 1 
 
 
-text = "Hello there, General Kenobi. You're a bold one to assume that you can simple rickroll a being like me. Only a mere mortal like yours truly would fall for such a cheap trick."
+text = "Hello there, General Kenobi. You're a bold one to assume that you can simply rickroll a being like me. Only a mere mortal like yours truly would fall for such a cheap trick."
 print( list(n_gram(10,text)) )
