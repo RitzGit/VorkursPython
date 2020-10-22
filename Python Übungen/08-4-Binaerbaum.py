@@ -45,3 +45,16 @@ def create_tree() -> Baum:
     lrll = lrl.set_left(Baum(6))
 
     lrllr = lrll.set_right(Baum(7))
+    return root
+
+def tiefensuche(root: Baum, result = '') -> str:
+    result += str(root.data) + ' '
+
+    if root.get_left() != None:
+        result += tiefensuche(root.get_left())
+    if root.get_right() != None:
+        result += tiefensuche(root.get_right())
+        
+    return result
+
+print(tiefensuche(create_tree()))

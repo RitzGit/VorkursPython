@@ -24,7 +24,7 @@ def generate_anagram(startword: str) -> List[str]:
     
     with open('deutsch.txt', 'r') as file:
         all_words = file.readlines()
-        #all_words = list(filter(lambda w : len(w) == len(startword), all_words))
+        #all_words = [w.lower().replace('\n', '') for w in all_words]
         for word in all_words:
             word = word.replace('\n', '')
 
@@ -35,12 +35,12 @@ def generate_anagram(startword: str) -> List[str]:
     
     return anagrams
         
-for _ in range(50):
+for _ in range(10):
     start = time.time()
-    print(generate_anagram('ampel'))
+    print(generate_anagram('regen'))
     times.append(time.time() - start)
 
-print(f'Durchschnitt: {sum(times) / 50}')
+print(f'Durchschnitt: {sum(times) / 10}')
 print(f'Min: {min(times)}')
 print(f'Max: {max(times)}')
 
