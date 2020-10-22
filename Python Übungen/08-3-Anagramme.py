@@ -40,7 +40,7 @@ for _ in range(50):
     print(generate_anagram('ampel'))
     times.append(time.time() - start)
 
-print(f'Durchschnitt: {sum(times) / 100}')
+print(f'Durchschnitt: {sum(times) / 50}')
 print(f'Min: {min(times)}')
 print(f'Max: {max(times)}')
 
